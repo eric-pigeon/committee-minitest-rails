@@ -17,7 +17,7 @@ module Committee
 
           report[:responses]
             .select { |response| path_filter.nil? || path_filter.match?(response[:path]) }
-            .sort_by { |response| response[:path] }
+            .sort_by { |response| [response[:path], response[:method], response[:status] ]}
         end
       end
 
